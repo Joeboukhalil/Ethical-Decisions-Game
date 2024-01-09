@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Philosophical Ethics Decision Game</title> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"> 
+  <style>
+    .dilemma-card {
+      max-width: 500px;
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .dilemma-card .card-title {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .dilemma-card .card-text {
+      margin-top: 10px;
+    }
+    .dilemma-card .btn {
+      margin-top: 20px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style> 
+ </head> 
+ <body> 
+  <div class="container"> 
+   <h1 class="text-center">Philosophical Ethics Decision Game</h1> 
+   <div class="dilemma-card" id="dilemma1"> 
+    <h2 class="card-title">Dilemma 1</h2> 
+    <p class="card-text">You witness a friend stealing from a store. If you report them to the authorities, they will face serious consequences. What would you do?</p> <button class="btn btn-primary" onclick="handleResponse1(1)">Report to authorities</button> <button class="btn btn-primary" onclick="handleResponse1(2)">Confront and persuade your friend to return the stolen item</button> <button class="btn btn-primary" onclick="handleResponse1(3)">Stay silent and let them get away with it</button> 
+    <div class="result" id="result1"></div> 
+   </div> 
+   <div class="dilemma-card" id="dilemma2"> 
+    <h2 class="card-title">Dilemma 2</h2> 
+    <p class="card-text">You are a doctor with limited resources. Two patients need a life-saving organ transplant, but there is only one available organ. Who would you choose to save?</p> <button class="btn btn-primary" onclick="handleResponse2(1)">Choose the patient with the higher chance of survival</button> <button class="btn btn-primary" onclick="handleResponse2(2)">Choose the patient who has contributed more to society</button> <button class="btn btn-primary" onclick="handleResponse2(3)">Randomly select one of the patients</button> 
+    <div class="result" id="result2"></div> 
+   </div> 
+   <div class="dilemma-card" id="dilemma3"> 
+    <h2 class="card-title">Dilemma 3</h2> 
+    <p class="card-text">You are a CEO of a company. A new product your company developed has potential safety issues, but releasing it would generate significant profits. What would you do?</p> <button class="btn btn-primary" onclick="handleResponse3(1)">Prioritize safety and delay the release until the issues are resolved</button> <button class="btn btn-primary" onclick="handleResponse3(2)">Release the product and provide warning labels to customers</button> <button class="btn btn-primary" onclick="handleResponse3(3)">Release the product and hope that the safety issues won't cause harm</button> 
+    <div class="result" id="result3"></div> 
+   </div> 
+   <div class="dilemma-card" id="dilemma4"> 
+    <h2 class="card-title">Dilemma 4</h2> 
+    <p class="card-text">You find out that a coworker is spreading false rumors about another colleague. What action would you take?</p> <button class="btn btn-primary" onclick="handleResponse4(1)">Confront the coworker and ask them to stop spreading rumors</button> <button class="btn btn-primary" onclick="handleResponse4(2)">Report the issue to a supervisor or HR department</button> <button class="btn btn-primary" onclick="handleResponse4(3)">Stay neutral and avoid getting involved</button> 
+    <div class="result" id="result4"></div> 
+   </div> 
+   <div class="dilemma-card" id="dilemma5"> 
+    <h2 class="card-title">Dilemma 5</h2> 
+    <p class="card-text">You come across confidential information about a competitor that could give your company a significant advantage. What would you do?</p> <button class="btn btn-primary" onclick="handleResponse5(1)">Use the information to benefit your company</button> <button class="btn btn-primary" onclick="handleResponse5(2)">Report the discovery to your supervisor or ethics committee</button> <button class="btn btn-primary" onclick="handleResponse5(3)">Ignore the information and avoid getting involved</button> 
+    <div class="result" id="result5"></div> 
+   </div> 
+   <div class="dilemma-card" id="dilemma6"> 
+    <h2 class="card-title">Dilemma 6</h2> 
+    <p class="card-text">You witness a group of colleagues bullying a coworker. What action would you take?</p> <button class="btn btn-primary" onclick="handleResponse6(1)">Confront the colleagues and stand up for the bullied coworker</button> <button class="btn btn-primary" onclick="handleResponse6(2)">Report the incident to a supervisor or HR department</button> <button class="btn btn-primary" onclick="handleResponse6(3)">Stay silent and avoid getting involved</button> 
+    <div class="result" id="result6"></div> 
+   </div> 
+   <div class="dilemma-card" id="dilemma7"> 
+    <h2 class="card-title">Dilemma 7</h2> 
+    <p class="card-text">You are a judge presiding over a high-profile case involving a close friend. What would you do to ensure impartiality?</p> <button class="btn btn-primary" onclick="handleResponse7(1)">Recuse yourself from the case due to the personal connection</button> <button class="btn btn-primary" onclick="handleResponse7(2)">Continue presiding over the case and maintain objectivity</button> <button class="btn btn-primary" onclick="handleResponse7(3)">Inform the court about the relationship but express your ability to remain impartial</button> 
+    <div class="result" id="result7"></div> 
+   </div> 
+   <div class="dilemma-card" id="dilemma8"> 
+    <h2 class="card-title">Dilemma 8</h2> 
+    <p class="card-text">You discover that your company is engaged in unethical practices that could harm the environment. What would you do?</p> <button class="btn btn-primary" onclick="handleResponse8(1)">Report the unethical practices to environmental authorities</button> <button class="btn btn-primary" onclick="handleResponse8(2)">Confront your superiors and advocate for a change in company policies</button> <button class="btn btn-primary" onclick="handleResponse8(3)">Stay silent to protect your job and avoid potential consequences</button> 
+    <div class="result" id="result8"></div> 
+   </div> 
+   <div class="dilemma-card" id="dilemma9"> 
+    <h2 class="card-title">Dilemma 9</h2> 
+    <p class="card-text">You are a teacher and discover that a student has cheated on a significant exam. What would you do?</p> <button class="btn btn-primary" onclick="handleResponse9(1)">Report the incident to the school administration</button> <button class="btn btn-primary" onclick="handleResponse9(2)">Confront the student privately and discuss the consequences of cheating</button> <button class="btn btn-primary" onclick="handleResponse9(3)">Ignore the incident and let the student face the consequences if caught</button> 
+    <div class="result" id="result9"></div> 
+   </div> 
+   <div class="dilemma-card" id="dilemma10"> 
+    <h2 class="card-title">Dilemma 10</h2> 
+    <p class="card-text">You are a software developer and discover a serious security flaw in your company's software. What would you do?</p> <button class="btn btn-primary" onclick="handleResponse10(1)">Immediately report the security flaw to the company and suggest a fix</button> <button class="btn btn-primary" onclick="handleResponse10(2)">Exploit the security flaw to prove its severity and push for immediate action</button> <button class="btn btn-primary" onclick="handleResponse10(3)">Keep quiet about the security flaw to avoid potential negative consequences</button> 
+    <div class="result" id="result10"></div> 
+   </div> 
+  </div> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script> 
+  <script>
+  function handleResponse1(responseNumber) {
+    var resultElement = document.getElementById("result1");
+    switch (responseNumber) {
+      case 1:
+        resultElement.textContent = "Your choice says about you: [You prioritize honesty and accountability, even if it means facing difficult consequences.]";
+        break;
+      case 2:
+        resultElement.textContent = "Your choice says about you: [Your decision reflects a commitment to upholding ethical standards and the rule of law.]";
+        break;
+      case 3:
+        resultElement.textContent = "Your choice says about you: [Choosing to report the theft shows your dedication to fairness and social responsibility]";
+        break;
+      // Add cases for each response option
+    }
+  }
+
+  function handleResponse2(responseNumber) {
+    var resultElement = document.getElementById("result2");
+    switch (responseNumber) {
+      case 1:
+        resultElement.textContent = "Your choice says about you: [Opting for the patient with a higher chance of survival suggests a focus on maximizing positive outcomes.]";
+        break;
+      case 2:
+        resultElement.textContent = "Your choice says about you: [Choosing the patient who contributed more to society indicates a consideration of broader societal impact.]";
+        break;
+      case 3:
+        resultElement.textContent = "Your choice says about you: [Randomly selecting a patient demonstrates a commitment to impartiality and fairness in difficult choices.]";
+        break;
+      // Add cases for each response option
+    }
+  }
+
+  function handleResponse3(responseNumber) {
+    var resultElement = document.getElementById("result3");
+    switch (responseNumber) {
+      case 1:
+        resultElement.textContent = "Your choice says about you: [Prioritizing safety and delaying the release shows a commitment to ethical business practices]";
+        break;
+      case 2:
+        resultElement.textContent = "Your choice says about you: [Releasing with warning labels suggests a balance between profit and responsibility.]";
+        break;
+      case 3:
+        resultElement.textContent = "Your choice says about you: [Releasing and hoping for no harm may reflect a risk-tolerant approach to business success.]";
+        break;
+      // Add cases for each response option
+    }
+  }
+  
+  function handleResponse4(responseNumber) {
+    var resultElement = document.getElementById("result4");
+    switch (responseNumber) {
+      case 1:
+        resultElement.textContent = "Your choice says about you: [Confronting the coworker and asking them to stop spreading rumors reflects a proactive stance against workplace gossip.]";
+        break;
+      case 2:
+        resultElement.textContent = "Your choice says about you: [Reporting the issue to a supervisor or HR department demonstrates a commitment to maintaining a healthy work environment.]";
+        break;
+      case 3:
+        resultElement.textContent = "Your choice says about you: [Staying neutral and avoiding involvement may indicate a preference for staying out of office conflicts.]";
+        break;
+      // Add cases for each response option
+    }
+  }
+
+  function handleResponse5(responseNumber) {
+    var resultElement = document.getElementById("result5");
+    switch (responseNumber) {
+      case 1:
+        resultElement.textContent = "Your choice says about you: [Using the information to benefit your company may show a focus on competitive advantage]";
+        break;
+      case 2:
+        resultElement.textContent = "Your choice says about you: [Reporting the discovery to your supervisor or ethics committee indicates a commitment to ethical conduct.]";
+        break;
+      case 3:
+        resultElement.textContent = "Your choice says about you: [Ignoring the information and avoiding involvement might suggest a desire to steer clear of ethical complications.]";
+        break;
+      // Add cases for each response option
+    }
+  }
+
+  function handleResponse6(responseNumber) {
+    var resultElement = document.getElementById("result6");
+    switch (responseNumber) {
+      case 1:
+        resultElement.textContent = "Your choice says about you: [Confronting the colleagues and standing up for the bullied coworker shows a commitment to a supportive workplace.]";
+        break;
+      case 2:
+        resultElement.textContent = "Your choice says about you: [Reporting the incident to a supervisor or HR department indicates a proactive approach to addressing workplace bullying.]";
+        break;
+      case 3:
+        resultElement.textContent = "Your choice says about you: [Staying silent and avoiding involvement may suggest a hesitation to engage in workplace conflicts.]";
+        break;
+      // Add cases for each response option
+    }
+  }
+  
+  function handleResponse7(responseNumber) {
+    var resultElement = document.getElementById("result7");
+    switch (responseNumber) {
+      case 1:
+        resultElement.textContent = "Your choice says about you: [Recusing yourself from the case due to the personal connection demonstrates a commitment to impartiality and ethical judicial conduct.]";
+        break;
+      case 2:
+        resultElement.textContent = "Your choice says about you: [Continuing to preside over the case and maintaining objectivity suggests confidence in your ability to separate personal relationships from professional duties.]";
+        break;
+      case 3:
+        resultElement.textContent = "Your choice says about you: [Informing the court about the relationship but expressing your ability to remain impartial shows transparency and a willingness to address potential biases.]";
+        break;
+      // Add cases for each response option
+    }
+  }
+
+  function handleResponse8(responseNumber) {
+    var resultElement = document.getElementById("result8");
+    switch (responseNumber) {
+      case 1:
+        resultElement.textContent = "Your choice says about you: [Reporting the unethical practices to environmental authorities reflects a commitment to environmental responsibility and accountability.]";
+        break;
+      case 2:
+        resultElement.textContent = "Your choice says about you: [Confronting your superiors and advocating for a change in company policies shows a dedication to ethical conduct within the organization.]";
+        break;
+      case 3:
+        resultElement.textContent = "Your choice says about you: [Staying silent to protect your job and avoid potential consequences may indicate a reluctance to challenge the status quo for personal reasons.]";
+        break;
+      // Add cases for each response option
+    }
+  }
+
+  function handleResponse9(responseNumber) {
+    var resultElement = document.getElementById("result9");
+    switch (responseNumber) {
+      case 1:
+        resultElement.textContent = "Your choice says about you: [Reporting the incident to the school administration reflects a commitment to maintaining academic integrity and upholding rules.]";
+        break;
+      case 2:
+        resultElement.textContent = "Your choice says about you: [Confronting the student privately and discussing the consequences of cheating indicates a desire for a more personal resolution.]";
+        break;
+      case 3:
+        resultElement.textContent = "Your choice says about you: [Ignoring the incident and letting the student face the consequences if caught may suggest a hands-off approach to academic misconduct.]";
+        break;
+      // Add cases for each response option
+    }
+  }
+
+  function handleResponse10(responseNumber) {
+    var resultElement = document.getElementById("result10");
+    switch (responseNumber) {
+      case 1:
+        resultElement.textContent = "Your choice says about you: [Immediately reporting the security flaw to the company and suggesting a fix demonstrates a commitment to cybersecurity and responsible disclosure.]";
+        break;
+      case 2:
+        resultElement.textContent = "Your choice says about you: [Exploiting the security flaw to prove its severity and pushing for immediate action suggests a proactive approach to addressing critical issues.]";
+        break;
+      case 3:
+        resultElement.textContent = "Your choice says about you: [Keeping quiet about the security flaw to avoid potential negative consequences may indicate a concern for personal safety or job security over ethical considerations.]";
+        break;
+      // Add cases for each response option
+    }
+  }
+</script>
+  
+ </body>
+</html>
